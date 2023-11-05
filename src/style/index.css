@@ -54,19 +54,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 150px;
+  padding: 150px 0px;
+  padding-left: 50px;
   gap: 15px;
   background-color: #000;
   color: #fff;
   margin-bottom: 10px;
   background-image: url("../img/Zebra’s Ketchup Pasta.jpg");
 }
-.content .title {
-  position: relative;
-  transform: translate(0px, 40px);
-  font-size: 100px;
-}
 .content .introduce {
+  position: relative;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -74,15 +72,17 @@
   align-items: center;
   padding: 60px 30px;
   border-radius: 20px;
-  gap: 40px;
   animation: color linear 5s infinite;
   color: #fff;
   margin-bottom: 10px;
 }
 .content .introduce .title {
+  position: absolute;
+  font-size: 100px;
   transition: 1s;
 }
 .content .introduce .comment {
+  position: absolute;
   display: flex;
   opacity: 0;
   font-size: 20px;
@@ -90,10 +90,11 @@
   transition: 1s;
 }
 .content .introduce:hover .title {
-  transform: translate(0px, 0px);
+  transform: translate(0px, -50px);
 }
 .content .introduce:hover .comment {
   opacity: 1;
+  transform: translate(0px, 70px);
 }
 .content .character {
   width: 100%;
@@ -105,7 +106,7 @@
 }
 .content .box {
   opacity: 0.9;
-  width: 50%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   padding: 10px;
