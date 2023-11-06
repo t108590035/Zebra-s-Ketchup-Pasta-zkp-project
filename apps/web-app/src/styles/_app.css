@@ -1,0 +1,19 @@
+/* @keyframes color{
+    0%{
+        background-color: #ca4c4cfe;
+    }
+    50%{
+        background-color: rgba(33, 195, 165, 0.931);
+    }
+    100%{
+        background-color: #e6ff5bea;
+    }
+} */
+.background{
+    background-color: white;
+    display: flex;
+    width: 70%;
+    border-radius: 20px;
+    opacity: 0.9;
+    animation: color linear 5s infinite;
+}

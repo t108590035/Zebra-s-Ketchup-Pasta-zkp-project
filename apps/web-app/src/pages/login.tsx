@@ -1,17 +1,15 @@
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Button, Divider } from "@chakra-ui/react"
-import { Identity } from "@semaphore-protocol/identity"
+import { FormControl, FormLabel, Input, Button, Divider } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
-
-import Stepper from "../components/Stepper"
 import { useRouter } from "next/router"
+import Stepper from "../components/Stepper"
+
 interface Props {
     username: string
     password: string
 }
 
-const Login: React.FC<Props> = ({ username, password }) => {
+const Login: React.FC<Props> = () => {
     const router = useRouter()
-    const [_identity, setIdentity] = useState<Identity>()
     const [trapDoor, setTrapDoor] = useState<string>("")
     const [nullifier, setNullifier] = useState<string>("")
     useEffect(() => {
@@ -19,10 +17,9 @@ const Login: React.FC<Props> = ({ username, password }) => {
 
         if (!identityString) {
             router.push("/")
-            return
         }
 
-        setIdentity(new Identity(identityString))
+
     }, [])
 
     const login = () => {
@@ -33,9 +30,9 @@ const Login: React.FC<Props> = ({ username, password }) => {
             return
         }
         
-        const [trapdoor,nullifier]=JSON.parse(identityString)
+        const [trapdoor,_nullifier]=JSON.parse(identityString)
 
-        if(trapdoor===trapDoor && nullifier===nullifier){
+        if(trapdoor===trapDoor && _nullifier===nullifier){
             router.push("/proofs")
         }else{
             console.log("wrong credentials")
@@ -45,24 +42,22 @@ const Login: React.FC<Props> = ({ username, password }) => {
     return (
         <>
             <FormControl>
-                <FormLabel>TrapDoor</FormLabel>
+                <FormLabel m="2">TrapDoor</FormLabel>
                 <Input
                     onChange={(e) => {
                         setTrapDoor(e.target.value)
                     }}
                     type="text"
                 />
-                <FormHelperText>We'll never share your TrapDoor.</FormHelperText>
-                <FormLabel>Nullifier</FormLabel>
+                <FormLabel m="2">Nullifier</FormLabel>
                 <Input
                     onChange={(e) => {
                         setNullifier(e.target.value)
                     }}
                     type="text"
                 />
-                <FormHelperText>We'll never share your Nullifier.</FormHelperText>
                 <Button onClick={login} mt={4} colorScheme="teal" size="lg">
-                    Login
+                    登入
                 </Button>
             </FormControl>
             <Divider pt="5" borderColor="gray.500" />

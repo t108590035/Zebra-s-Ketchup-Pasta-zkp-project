@@ -10,6 +10,7 @@ import LogsContext from "../context/LogsContext"
 import SemaphoreContext from "../context/SemaphoreContext"
 import useSemaphore from "../hooks/useSemaphore"
 import theme from "../styles/index"
+import "../styles/_app.css"
 
 const { publicRuntimeConfig: env } = getNextConfig()
 
@@ -61,19 +62,38 @@ export default function App({ Component, pageProps }: AppProps) {
                     </Link>
                 </HStack>
 
-                <Container maxW="lg" flex="1" display="flex" alignItems="center">
-                    <Stack py="8" display="flex" width="100%">
-                        <SemaphoreContext.Provider value={semaphore}>
-                            <LogsContext.Provider
-                                value={{
-                                    _logs,
-                                    setLogs
-                                }}
-                            >
-                                <Component {...pageProps} />
-                            </LogsContext.Provider>
-                        </SemaphoreContext.Provider>
-                    </Stack>
+                <Container
+                    bgImage="../../Zebra-Ketchup-Pasta.jpg"
+                    bgPosition="center"
+                    flex="1"
+                    display="flex"
+                    maxW="100%"
+                    justifyContent="center"
+                    alignItems="center"
+                    position="relative"
+                    overflow="visible"
+                >
+                    <div className="background">
+                        <Stack
+                            bgColor="rgba(255, 255, 128, 0)"
+                            padding="20px"
+                            borderRadius="20px"
+                            py="8"
+                            display="flex"
+                            width="100%"
+                        >
+                            <SemaphoreContext.Provider value={semaphore}>
+                                <LogsContext.Provider
+                                    value={{
+                                        _logs,
+                                        setLogs
+                                    }}
+                                >
+                                    <Component {...pageProps} />
+                                </LogsContext.Provider>
+                            </SemaphoreContext.Provider>
+                        </Stack>
+                    </div>
                 </Container>
 
                 <HStack

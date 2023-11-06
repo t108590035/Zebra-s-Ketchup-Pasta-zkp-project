@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, HStack, Link, Text, useBoolean, VStack ,Input} from "@chakra-ui/react"
+import { Box, Button, Divider, Heading, HStack, Text, useBoolean, VStack} from "@chakra-ui/react"
 import { Identity } from "@semaphore-protocol/identity"
 import getNextConfig from "next/config"
 import { useRouter } from "next/router"
@@ -83,26 +83,17 @@ export default function GroupsPage() {
     return (
         <>
             <Heading as="h2" size="xl">
-                Groups
+                登記會員
             </Heading>
-
-            <Text pt="2" fontSize="md">
-                Semaphore{" "}
-                <Link href="https://semaphore.pse.dev/docs/guides/groups" color="primary.500" isExternal>
-                    groups
-                </Link>{" "}
-                are binary incremental Merkle trees in which each leaf contains an identity commitment for a user.
-                Groups can be abstracted to represent events, polls, or organizations.
-            </Text>
 
             <Divider pt="5" borderColor="gray.500" />
 
             <HStack py="5" justify="space-between">
                 <Text fontWeight="bold" fontSize="lg">
-                    Feedback users ({_users.length})
+                    會員人數 ({_users.length})
                 </Text>
                 <Button leftIcon={<IconRefreshLine />} variant="link" color="text.700" onClick={refreshUsers}>
-                    Refresh
+                    重新整理
                 </Button>
             </HStack>
 
@@ -117,7 +108,7 @@ export default function GroupsPage() {
                     isDisabled={_loading || !_identity || userHasJoined(_identity)}
                     leftIcon={<IconAddCircleFill />}
                 >
-                    Join group
+                    加入會員
                 </Button>
             </Box>
 
