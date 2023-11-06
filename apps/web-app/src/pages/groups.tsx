@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, HStack, Link, Text, useBoolean, VStack } from "@chakra-ui/react"
+import { Box, Button, Divider, Heading, HStack, Link, Text, useBoolean, VStack ,Input} from "@chakra-ui/react"
 import { Identity } from "@semaphore-protocol/identity"
 import getNextConfig from "next/config"
 import { useRouter } from "next/router"
@@ -138,7 +138,7 @@ export default function GroupsPage() {
             <Stepper
                 step={2}
                 onPrevClick={() => router.push("/")}
-                onNextClick={_identity && userHasJoined(_identity) ? () => router.push("/proofs") : undefined}
+                onNextClick={_identity && userHasJoined(_identity) ? () => router.push("/login") : undefined}
             />
         </>
     )

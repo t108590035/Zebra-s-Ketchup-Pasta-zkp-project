@@ -10,7 +10,8 @@ if (!fs.existsSync("./.env")) {
 
 const nextConfig = withPWA({
     dest: "public",
-    disable: process.env.NODE_ENV === "development"
+    disable: process.env.NODE_ENV === "development",
+    distDir:"build",
 })({
     eslint: {
         ignoreDuringBuilds: true

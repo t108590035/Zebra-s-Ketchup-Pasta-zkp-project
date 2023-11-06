@@ -159,7 +159,7 @@ export default function ProofsPage() {
 
             <Divider pt="6" borderColor="gray" />
 
-            <Stepper step={3} onPrevClick={() => router.push("/groups")} />
+            <Stepper step={3} onPrevClick={() => router.push("/login")} />
         </>
     )
 }
